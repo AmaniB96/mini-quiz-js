@@ -51,14 +51,17 @@ let questions = ["Quelle est la capitale du Rwanda ?",
   
 let score=0  
 
-for (let chance=0; chance<21; chance++){
-    reponseFinal=prompt(questions[chance]);
+for (let chance=0; chance<=20; chance++){
+    reponseFinal=prompt(questions[chance]+" (écrivez 'Q' pour quitter le quiz)");
         if (reponseFinal==answers[chance]) {
             console.log("Bonne réponse")
             score= score +1
-        }    
+        }
+        else if (reponseFinal=="Q"){
+            break;
+        }
         else {
             console.log("Mauvaise reponse !")
         }
 }
-console.log("Le jeu est terminé")
+console.log("Le jeu est terminé. votre score est de "+score)
