@@ -69,7 +69,7 @@ for (let chance=0; chance<questions.length; chance++){
             console.log("Mauvaise reponse ! la bonne réponse était: "+answers[chance])
         }
 }
-console.log("Le jeu est terminé. Ton score est de "+score)
+alert("Le jeu est terminé. Ton score est de "+score)
 
 if (score >=0 && score<6){
     console.log("Tu es parmi les pires joueurs que j'ai pu voir")
