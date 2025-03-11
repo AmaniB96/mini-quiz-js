@@ -56,7 +56,7 @@ let questions = ["Quelle est la capitale du Rwanda ?",
 let score=0  
 
 // Boucle qui permet de faire tourner le jeu ou le quitter
-for (let chance=0; chance<=20; chance++){
+for (let chance=0; chance<questions.length; chance++){
     reponseFinal=prompt(questions[chance]+" (écrivez 'Q' pour quitter le quiz)"); //la boucle va tourner pour que element de la liste 1 par 1 a l'index du tour
         if (reponseFinal==answers[chance]) { //Verifie si la reponse entrée correspond à la reponse à l'index de ce tour
             console.log("Bonne réponse !")
