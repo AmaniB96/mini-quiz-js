@@ -55,6 +55,7 @@ for (let chance=0; chance<21; chance++){
     reponseFinal=prompt(questions[chance]);
         if (reponseFinal==answers[chance]) {
             console.log("Bonne réponse")
+            score= score +1
         }    
         else {
             console.log("Mauvaise reponse !")
