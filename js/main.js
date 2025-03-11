@@ -1,3 +1,6 @@
+
+
+
 console.log("Bienvenu dans le Quizz des capitales")
 
 // let nom = prompt("Quel est ton nom ?")
