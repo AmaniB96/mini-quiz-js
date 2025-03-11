@@ -1,0 +1,1 @@
+console.log("Bienvenu dans le Quizz des capitales")
