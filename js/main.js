@@ -54,7 +54,7 @@ let score=0
 for (let chance=0; chance<=20; chance++){
     reponseFinal=prompt(questions[chance]+" (écrivez 'Q' pour quitter le quiz)");
         if (reponseFinal==answers[chance]) {
-            console.log("Bonne réponse")
+            console.log("Bonne réponse !")
             score= score +1
         }
         else if (reponseFinal=="Q"){
