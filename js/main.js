@@ -39,9 +39,9 @@ let questions = [
         ]},
     {question:"Quelle est la capitale du Guinée?", 
         answers: 
-        [{text:"Bruxelles", correct: true},
+        [{text:"Bruxelles", correct: false},
             {text:"Le caire", correct: false},
-            {text:"Conakry", correct: false},
+            {text:"Conakry", correct: true},
         ]},
     {question:"Quelle est la capitale du jamaïque?", 
         answers: 
@@ -57,59 +57,139 @@ let questions = [
         ]},
     {question:"Quelle est la capitale du Colombie?", 
         answers: 
-        [{text:"Rio de Janeiro", correct: true},
+        [{text:"Rio de Janeiro", correct: false},
             {text:"Santiago", correct: false},
-            {text:"Bogota", correct: false},
+            {text:"Bogota", correct: true},
         ]}]
 
 
-// Initiation du score à 0
-let score = 0  
-let intitulequestion = document.querySelector("#question")
-let reponse1 = document.querySelector("#rep1")
-let reponse2 = document.querySelector("#rep2")
-let reponse3 = document.querySelector("#rep3")
-let suivant = document.querySelector("#next")
+let score = 0;
+let currentQuestion = 0;
 
-for (let i = 0; i < questions.length; i++) {
-    intitulequestion.innerText = questions[i].question;
-    reponse1.innerText = questions[i].answers[0].text;
-    reponse2.innerText = questions[i].answers[1].text;
-    reponse3.innerText = questions[i].answers[2].text;
+let intitulequestion = document.querySelector("#question");
+let reponse1 = document.querySelector("#rep1");
+let reponse2 = document.querySelector("#rep2");
+let reponse3 = document.querySelector("#rep3");
 
-    reponse1.addEventListener("click", () => {
-        if (questions[i].answers[0].correct === true) {
-            let newdiv = document.createElement("div");
-            newdiv.innerText = "Bonne reponse !";
-            let currentdiv = document.querySelector("#bouton-reponses")
-            document.body.insertBefore(newdiv, currentdiv);
-        } else {
-            let newdiv = document.createElement("div");
-            newdiv.innerText = "Mauvaise reponse !";
-            let currentdiv = document.querySelector("#bouton-reponses")
-            document.body.insertBefore(newdiv, currentdiv);
+// Initial question display
+intitulequestion.innerText = questions[currentQuestion].question;
+reponse1.innerText = questions[currentQuestion].answers[0].text;
+reponse2.innerText = questions[currentQuestion].answers[1].text;
+reponse3.innerText = questions[currentQuestion].answers[2].text;
+
+// Answer 1 click event
+reponse1.onclick = () => {
+    if (questions[currentQuestion].answers[0].correct === true) {
+        reponse1.style.backgroundColor = "green";
+        score++;
+        currentQuestion++;
+    } else {
+        reponse1.style.backgroundColor = "red";
+        alert("Mauvaise réponse!");
+        currentQuestion++;
+    }
+
+    if (currentQuestion < questions.length) {
+        setTimeout(() => {
+            intitulequestion.innerText = questions[currentQuestion].question;
+            reponse1.innerText = questions[currentQuestion].answers[0].text;
+            reponse2.innerText = questions[currentQuestion].answers[1].text;
+            reponse3.innerText = questions[currentQuestion].answers[2].text;
+            reponse1.style.backgroundColor = "";
+            reponse2.style.backgroundColor = "";
+            reponse3.style.backgroundColor = "";
+        }, 500);
+    } else {
+        alert("Le jeu est terminé. Ton score est de " + score);
+        if (score >=0 && score<2){
+            alert("Tu es parmi les pires joueurs que j'ai pu voir")
         }
-    })
-}
+        else if (score >=2 && score<5){
+            alert("Tu n'es pas très bon")
+        }
+        else if (score >=5 && score<8){
+            alert("Pas mal mais tu peux mieux faire")
+        }
+        else {
+            alert("Bien joué, très bon score")
+        }
+    }
+};
 
+// Answer 2 click event
+reponse2.onclick = () => {
+    if (questions[currentQuestion].answers[1].correct === true) {
+        reponse2.style.backgroundColor = "green";
+        score++;
+        currentQuestion++;
+    } else {
+        reponse2.style.backgroundColor = "red";
+        alert("Mauvaise réponse!");
+        currentQuestion++;
+    }
 
-question.innerText= questions[1].question
-console.log(intitulequestion)
-// Boucle qui permet de faire tourner le jeu ou le quitter
+    if (currentQuestion < questions.length) {
+        setTimeout(() => {
+            intitulequestion.innerText = questions[currentQuestion].question;
+            reponse1.innerText = questions[currentQuestion].answers[0].text;
+            reponse2.innerText = questions[currentQuestion].answers[1].text;
+            reponse3.innerText = questions[currentQuestion].answers[2].text;
+            reponse1.style.backgroundColor = "";
+            reponse2.style.backgroundColor = "";
+            reponse3.style.backgroundColor = "";
+        }, 500);
+    } else {
+        alert("Le jeu est terminé. Ton score est de " + score);
+        if (score >=0 && score<2){
+            alert("Tu es parmi les pires joueurs que j'ai pu voir")
+        }
+        else if (score >=2 && score<5){
+            alert("Tu n'es pas très bon")
+        }
+        else if (score >=5 && score<8){
+            alert("Pas mal mais tu peux mieux faire")
+        }
+        else {
+            alert("Bien joué, très bon score")
+        }
+    }
+};
 
+// Answer 3 click event
+reponse3.onclick = () => {
+    if (questions[currentQuestion].answers[2].correct === true) {
+        reponse3.style.backgroundColor = "green";
+        score++;
+        currentQuestion++;
+    } else {
+        reponse3.style.backgroundColor = "red";
+        alert("Mauvaise réponse!");
+        currentQuestion++;
+    }
 
-
-// alert("Le jeu est terminé. Ton score est de "+score)
-
-// if (score >=0 && score<6){
-//     console.log("Tu es parmi les pires joueurs que j'ai pu voir")
-// }
-// else if (score >=6 && score<10){
-//     console.log("Tu n'es pas très bon")
-// }
-// else if (score >=10 && score<16){
-//     console.log("Pas mal mais tu peux mieux faire")
-// }
-// else {
-//     console.log("Bien joué, très bon score")
-// }
+    if (currentQuestion < questions.length) {
+        setTimeout(() => {
+            intitulequestion.innerText = questions[currentQuestion].question;
+            reponse1.innerText = questions[currentQuestion].answers[0].text;
+            reponse2.innerText = questions[currentQuestion].answers[1].text;
+            reponse3.innerText = questions[currentQuestion].answers[2].text;
+            reponse1.style.backgroundColor = "";
+            reponse2.style.backgroundColor = "";
+            reponse3.style.backgroundColor = "";
+        }, 500);
+    } else {
+        alert("Le jeu est terminé. Ton score est de " + score);
+        if (score >=0 && score<2){
+            alert("Tu es parmi les pires joueurs que j'ai pu voir")
+        }
+        else if (score >=2 && score<5){
+            alert("Tu n'es pas très bon")
+        }
+        else if (score >=5 && score<8){
+            alert("Pas mal mais tu peux mieux faire")
+        }
+        else {
+            alert("Bien joué, très bon score")
+        }
+    }
+};
