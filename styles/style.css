@@ -45,3 +45,14 @@ padding: 30px;
     border-radius: 4px;
     cursor: pointer;
 }
+
+footer{
+    background-color: white;
+    margin-top: 300px;
+}
+
+#bienvenu {
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}

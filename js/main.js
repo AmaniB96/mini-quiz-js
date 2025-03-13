@@ -1,4 +1,7 @@
-// let nom = prompt("Quel est ton nom ?")
+let nom = prompt("Quel est ton nom ?")
+
+let bienvenu = document.querySelector("#bienvenu")
+bienvenu.innerText = "Bienvenu " + nom
 
 let questions = [ 
     {question:"Quelle est la capitale du Rwanda ?", 
